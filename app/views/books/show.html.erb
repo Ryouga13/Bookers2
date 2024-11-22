@@ -1,2 +1,15 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
+
+
+<h2>Book detail</h2>
+
+<table>
+<spen><%= link_to @book_id.title, "/books/#{@book_id.id}" %></spen>
+<spen><%= @book_id.body %></spen>
+
+<%= link_to 'Edit', "/books/#{@book_id.id}/edit" %>
+<%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？" %>
+</table>
+
+<p>ユーザIDのリンク</p>

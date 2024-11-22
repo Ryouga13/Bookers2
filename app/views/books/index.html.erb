@@ -1,6 +1,10 @@
 <h1>Books#index</h1>
 
 
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <h2>Books</h2>
 
 <% @book_all.each do |f| %>
@@ -15,7 +19,7 @@
 
   <tbody>
   <th></th>
-  <td><%= f.title %></td>
+  <td><%= link_to f.title, "/books/#{f.id}" %></td>
   <td><%= f.body %></td>
   </tbody>
 
