@@ -1,2 +1,24 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+
+<h2>Users</h2>
+
+<% @user.each do |f| %>
+
+  <table>
+
+  <thead>
+  <th>image</th>
+  <th>name</th>
+  <th></th>
+  </thead>
+
+  <tbody>
+  <th><%= image_tag f.get_profile_image(100,100) %></th>
+  <td><%= f.name %></td>
+  <td><%= link_to "Show", '/books' %></td></td>
+  </tbody>
+
+  </table>
+<% end %>
