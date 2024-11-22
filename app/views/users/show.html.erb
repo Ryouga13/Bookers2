@@ -1,0 +1,27 @@
+<h1>Users#show</h1>
+
+
+<h2>Uers info</h2>
+
+<div>
+  <%= image_tag @user_id.get_profile_image(100,100) %>
+  <table>
+  <thead>
+  <th>name</th>
+  <th><%= @user_id.name %></th>
+  </thead>
+
+  <tbody>
+  <th>introduction</th>
+  <th><%= @user_id.introduction %></th>
+  </tbody>
+  </table>
+</div>
+
+<%= link_to 'Edit', "/users/#{@user_id.id}/edit" %>
+
+
+
+
+
+
