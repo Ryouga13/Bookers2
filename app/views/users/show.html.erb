@@ -1,24 +1,26 @@
 <h1>Users#show</h1>
 
+<%= render 'books/side_bar', user_id: @user_id, book: @book %>
 
-<h2>Uers info</h2>
+<h2>Books</h2>
 
-<div>
-  <%= image_tag @user_id.get_profile_image(100,100) %>
-  <table>
-  <thead>
-  <th>name</th>
-  <th><%= @user_id.name %></th>
-  </thead>
+<table>
 
-  <tbody>
-  <th>introduction</th>
-  <th><%= @user_id.introduction %></th>
-  </tbody>
-  </table>
-</div>
+<tr>
+<td>
+  <%= link_to "/users/#{@book_id.user.id}" do %>
+  <%= image_tag @book_id.user.get_profile_image(100,100) %>
+  <br>
+  <%=  @book_id.user.name %>
+  <% end %></td>
+<td><%= link_to @book_id.title, "/books/#{@book_id.id}" %></td>
+<td><%= @book_id.body %></td>
 
-<%= link_to 'Edit', "/users/#{@user_id.id}/edit" %>
+<td><%= link_to 'Edit', "/books/#{@book_id.id}/edit" %></td>
+<td><%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？" %>
+</td></tr>
+</table>
+
 
 
 

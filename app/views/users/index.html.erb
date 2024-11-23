@@ -1,6 +1,8 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
 
+<%= render 'books/side_bar', user_id: @user_id, book: @book %>
+
 
 <h2>Users</h2>
 
@@ -17,7 +19,7 @@
   <tbody>
   <th><%= image_tag f.get_profile_image(100,100) %></th>
   <td><%= f.name %></td>
-  <td><%= link_to "Show", '/books' %></td></td>
+  <td><%= link_to "Show", "books/current_user.id" %></td></td>
   </tbody>
 
   </table>

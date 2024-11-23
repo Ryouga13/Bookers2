@@ -8,13 +8,20 @@
 
 <table>
 
-<spen><%= image_tag @book_id.user.get_profile_image(100,100) %></spen>
-<spen><%= link_to @book_id.title, "/books/#{@book_id.id}" %></spen>
-<spen><%= @book_id.body %></spen>
+<tr>
+<td>
+  <%= link_to "/users/#{@book_id.user.id}" do %>
+  <%= image_tag @book_id.user.get_profile_image(100,100) %>
+  <br>
+  <%=  @book_id.user.name %>
+  <% end %></td>
+<td><%= link_to @book_id.title, "/books/#{@book_id.id}" %></td>
+<td><%= @book_id.body %></td>
 
-<%= link_to 'Edit', "/books/#{@book_id.id}/edit" %>
-<%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？" %>
+<td><%= link_to 'Edit', "/books/#{@book_id.id}/edit" %></td>
+<td><%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？" %>
+</td></tr>
 </table>
 
 
-<%= link_to @book_id.user.name, "/users/#{@book_id.user.id}" %></spen>
+
