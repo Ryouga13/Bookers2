@@ -5,7 +5,7 @@
 <h2>Book detail</h2>
 
 <table>
-<spen><%= image_tag @book_id.get_profile_image(100,100) %></spen>
+<spen><%= image_tag @book_id.user.get_profile_image(100,100) %></spen>
 <spen><%= link_to @book_id.title, "/books/#{@book_id.id}" %></spen>
 <spen><%= @book_id.body %></spen>
 

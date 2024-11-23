@@ -18,7 +18,7 @@
   </thead>
 
   <tbody>
-  <td></td>
+  <td><%= image_tag @book_all.user.get_profile_image(100,100) %></td>
   <td><%= link_to f.title, "/books/#{f.id}" %></td>
   <td><%= f.body %></td>
   </tbody>
