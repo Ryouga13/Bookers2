@@ -4,8 +4,9 @@ class BooksController < ApplicationController
   end
 
   def index
+    @book = Book.new
     @book_all = Book.all
-    @book.user_id = user.id
+    @user_id = current_user
   end
 
   def show

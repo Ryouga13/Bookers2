@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user_id = User.find(params[:id])
-    @image = @user_id.profile_image
+ 
   end
 
   def edit
