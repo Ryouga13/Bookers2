@@ -1,26 +1,30 @@
 
 
+<div class='container px-5 px-sm-0'>
+	<div class='row'>
+	  <div class='col-md-3'>
+
 <h2>Uers info</h2>
-<div>
+<table class='table'>
+  <tr>
   <%= image_tag user_id.get_profile_image(100,100) %>
-  <table>
-  <thead>
+   </tr>
+   <tr>
   <th>name</th>
   <th><%= user_id.name %></th>
-  </thead>
-
-  <tbody>
+  </tr>
+  <tr>
   <th>introduction</th>
   <th><%= user_id.introduction %></th>
-  </tbody>
+  </tr>
   </table>
-</div>
 
-<%= link_to 'ユーザー設定', "/users/#{user_id.id}/edit" %>
+  <div class='row'>
+  <%= link_to 'ユーザー設定', "/users/#{user_id.id}/edit" %>
+  </div>
 
 
-
-<h2>New book</h2>
+  <h2 class="mt-3">New book</h2>
 <% if book.errors.any? %>
   <%= book.errors.count %>errors prohibited this obj from being saved:
   <ul>
@@ -38,3 +42,7 @@
   <br />
   <%= f.submit 'Create Book' %>
 <% end %>
+
+</div>
+</div>
+</div>

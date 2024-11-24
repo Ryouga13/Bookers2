@@ -11,6 +11,20 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="navbarNavDropdown">
 	        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to "Home", user_path(current_user.id) %>
+          </li>
+          <li>
+            <%= link_to "Users", '/users' %>
+          </li>
+          <li>
+            <%= link_to "Books", '/books' %>
+          </li>
+          <li>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
 	           <li>
 	            <%= link_to root_path, class:"nav-link text-light" do%>
 	             <i class="fa-solid fa-house"></i> Home
@@ -33,6 +47,7 @@
 	             Log in
 	            <% end %>
 	           </li>
+              <% end %>
             </ul>
            </div>
          </div>
