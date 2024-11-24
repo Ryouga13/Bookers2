@@ -4,22 +4,22 @@
 
 <h2>Books</h2>
 
-<table>
 
+<% @user_show.each do |f| %>
+<table>
 <tr>
 <td>
-  <%= link_to "/users/#{@book_id.user.id}" do %>
-  <%= image_tag @book_id.user.get_profile_image(100,100) %>
-  <br>
-  <%=  @book_id.user.name %>
+  <%= link_to "/users/#{f.id}" do %>
+  <%= image_tag f.get_profile_image(100,100) %>
   <% end %></td>
-<td><%= link_to @book_id.title, "/books/#{@book_id.id}" %></td>
-<td><%= @book_id.body %></td>
+<td><%= link_to f.title, "/books/#{f.id}" %></td>
+<td><%= f.body %></td>
 
-<td><%= link_to 'Edit', "/books/#{@book_id.id}/edit" %></td>
-<td><%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？" %>
+
 </td></tr>
 </table>
+
+<% end %>
 
 
 
