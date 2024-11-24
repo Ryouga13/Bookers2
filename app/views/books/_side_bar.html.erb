@@ -19,7 +19,11 @@
   </table>
 
   <div class='row'>
-  <%= link_to 'ユーザー設定', "/users/#{user_id.id}/edit" %>
+  <li>
+<%= link_to edit_user_path(user_id.id), class:"svg-inline--fa fa-user-gear" do%>
+<i class="fas fa-user-cog"></i>
+	<% end %>
+	</li>
   </div>
 
 
@@ -39,7 +43,9 @@
   <p>Opinion</p>
   <%= f.text_area :body %>
   <br />
-  <%= f.submit 'Create Book' %>
+  <div class="actions">
+  <%= f.submit "Create Book", class: "btn btn-success" %>
+  </div>
 <% end %>
 
 </div>

@@ -6,7 +6,7 @@
 <div class="col-md-8 offset-md-1">
 <h2>Books</h2>
 
-<% @user_show.books.each do |f| %>
+
 <table class="table table-hover table-inverse">
 <thead>
 <tr>
@@ -17,19 +17,21 @@
 <tr>
 </thead>
 
+
+<% @user_show.books.each do |f| %>
 <tbody>
 <tr>
 <td>
   <%= link_to "/users/#{@user_show.id}" do %>
-  <%= image_tag @user_show.get_profile_image(100,100) %>
+  <%= image_tag @user_show.get_profile_image(80,80) %>
   <% end %></td>
 <td><%= link_to f.title, "/books/#{f.id}" %></td>
 <td><%= f.body %></td>
 </tr>
 </tbody>
+<% end %>
 </table>
 
-<% end %>
 
 </div>
 </div>
