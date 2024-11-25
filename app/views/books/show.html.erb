@@ -3,6 +3,12 @@
 	<div class='row'>
 
 
+<%= render 'side_bar', user_id: @user_id, book: @book %>
+
+
+<div class="col-md-8 offset-md-1">
+<h2>Book detail</h2>
+
 <% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this obj from being saved:
   <ul>
@@ -11,13 +17,6 @@
     <% end %>
   </ul>
 <% end %>
-
-
-<%= render 'side_bar', user_id: @user_id, book: @book %>
-
-
-<div class="col-md-8 offset-md-1">
-<h2>Book detail</h2>
 
 <table class="table table-hover table-inverse">
 <tbody>
@@ -31,11 +30,17 @@
 <td><%= link_to @book_id.title, "/books/#{@book_id.id}" %></td>
 <td><%= @book_id.body %></td>
 
-<td><div class="actions">
-  <%= book_path(@book_id.id).submit "Edit", class: "btn btn-success" %>
-  </div></td>
-<td><%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？" %>
-</td></tr>
+<% if @book_id.user == current_user %>
+<td>
+<%= link_to 'Edit', "/books/#{@book_id.id}/edit", class: "btn btn-sm btn-success" %>
+</td>
+<td><%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %>
+</td>
+<% else %>
+      <td></td>
+      <td></td>
+    <% end %>
+</tr>
 </tbody>
 </table>
 

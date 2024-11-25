@@ -1,7 +1,21 @@
-<h1>Books#edit</h1>
+
+
+<div class='container>
+	<div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
 
 
 <h2>Editing Book</h2>
+
+<% if @book_edit.errors.any? %>
+  <%= @book_edit.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book_edit.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_with model: @book_edit, url: "/books/#{@book_edit.id}" , method: :patch do |f| %>
 
@@ -12,7 +26,9 @@
   <%= f.text_area :body %>
   
   <br />
-  <%= f.submit 'Update Book' %>
+  <div class="actions">
+  <%= f.submit "Update Book", class: "btn btn-success" %>
+  </div>
 
   <br />
   <%= link_to 'Show', "/books/#{@book_edit.id}" %>
@@ -20,3 +36,8 @@
   <%= link_to 'Back', "/books" %>
   
 <% end %>
+
+
+</div>
+</div>
+</div>
