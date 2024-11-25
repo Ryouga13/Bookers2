@@ -1,5 +1,6 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+
+<div class='container px-5 px-sm-0'>
+	<div class='row'>
 
 
 <% if @book.errors.any? %>
@@ -13,10 +14,13 @@
 
 
 <%= render 'side_bar', user_id: @user_id, book: @book %>
+
+
+<div class="col-md-8 offset-md-1">
 <h2>Book detail</h2>
 
-<table>
-
+<table class="table table-hover table-inverse">
+<tbody>
 <tr>
 <td>
   <%= link_to "/users/#{@book_id.user.id}" do %>
@@ -27,10 +31,15 @@
 <td><%= link_to @book_id.title, "/books/#{@book_id.id}" %></td>
 <td><%= @book_id.body %></td>
 
-<td><%= link_to 'Edit', "/books/#{@book_id.id}/edit" %></td>
+<td><div class="actions">
+  <%= book_path(@book_id.id).submit "Edit", class: "btn btn-success" %>
+  </div></td>
 <td><%= link_to 'Destroy', "/books/#{@book_id.id}", method: :delete, "data-confirm" => "本当に消しますか？" %>
 </td></tr>
+</tbody>
 </table>
 
 
-
+</div>
+</div>
+</div>

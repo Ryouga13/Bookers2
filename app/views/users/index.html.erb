@@ -1,26 +1,36 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
+<div class='container px-5 px-sm-0'>
+	<div class='row'>
+
 
 <%= render 'books/side_bar', user_id: @user_id, book: @book %>
 
 
+<div class="col-md-8 offset-md-1">
 <h2>Users</h2>
 
-<% @user_all.each do |f| %>
-
-  <table>
-
-  <thead>
+<table class="table table-hover table-inverse">
+<thead>
+<tr>
   <th>image</th>
   <th>name</th>
   <th></th>
+  </tr>
   </thead>
 
+
+<% @user_all.each do |f| %>
   <tbody>
-  <th><%= image_tag f.get_profile_image(100,100) %></th>
+  <tr>
+  <td><%= image_tag f.get_profile_image(80,80) %></td>
   <td><%= f.name %></td>
   <td><%= link_to "Show", user_path(f.id) %></td></td>
+  </tr>
   </tbody>
+<% end %>
 
   </table>
-<% end %>
+
+</div>
+</div>
+</div>
